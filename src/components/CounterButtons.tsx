@@ -1,18 +1,15 @@
+"use client";
+
 import Button from "@/components/Button";
+import { useCounter } from "@/context/counterContext";
 
-interface CounterButtonsProps {
-  onIncreaseClick: () => void;
-  onDecreaseClick: () => void;
-}
+export default function CounterButtons() {
+  const { increaseCounter, decreaseCounter } = useCounter();
 
-export default function CounterButtons({
-  onIncreaseClick,
-  onDecreaseClick,
-}: CounterButtonsProps) {
   return (
     <div className="p-4 flex flex-col gap-2">
-      <Button onClick={onIncreaseClick}>increase</Button>
-      <Button onClick={onDecreaseClick}>decrease</Button>
+      <Button onClick={increaseCounter}>increase</Button>
+      <Button onClick={decreaseCounter}>decrease</Button>
     </div>
   );
 }
